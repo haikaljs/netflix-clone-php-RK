@@ -16,6 +16,10 @@
 <body>
     <div class="signInContainer">
         <div class="column">
+            <div class="header">
+                <h3>Sign Up</h3>
+                <span>to continue to Netflix</span>
+            </div>
             <form method="POST">
                 <input type="text" name="firstName" placeholder="First name" required>
                 <input type="text" name="lasttName" placeholder="Last name"  required>
