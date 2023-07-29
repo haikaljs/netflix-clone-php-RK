@@ -7,6 +7,10 @@
     <link rel="stylesheet" type="text/css" href="./assets/styles.css">
 </head>
 <body>
-    Register
+    <div class="signInContainer">
+        <div class="column">
+            
+        </div>
+    </div>
 </body>
 </html>
