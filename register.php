@@ -17,8 +17,10 @@
     <div class="signInContainer">
         <div class="column">
             <div class="header">
+                <img src="./assets/images/logo.png" title="Logo" alt="Site Logo">
                 <h3>Sign Up</h3>
                 <span>to continue to Netflix</span>
+                
             </div>
             <form method="POST">
                 <input type="text" name="firstName" placeholder="First name" required>
