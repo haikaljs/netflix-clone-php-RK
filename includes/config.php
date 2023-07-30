@@ -8,7 +8,7 @@ try{
 
     $con = new PDO("mysql:dbname=netflix;host=localhost", "root", "");
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-    echo "PDO connection successful!";
+    echo "PDO connection successful! <br/>";
 
 }catch(PDOException $e){
     exit("Connection failed: " . $e->getMessage());
