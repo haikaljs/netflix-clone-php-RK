@@ -28,12 +28,12 @@ class Account{
 
     public function login($un, $pw){
         $pw = hash("sha512", $pw);
-        $query = $this->con->prepare("SELECT * FROM users WHERE username username=:un AND password=:pw");
+        $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
         $query->bindValue(":un", $un);
         $query->bindValue(":pw", $pw);
         $query->execute();
 
-        if($query->rowCount == 1){
+        if($query->rowCount() == 1){
             return true;
         }
 
