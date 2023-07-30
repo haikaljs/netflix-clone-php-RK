@@ -37,7 +37,10 @@ class Account{
         $query->bindValue(":em", $em);
         $query->bindValue(":pw", $pw);
 
+        // $query->execute();
+        // var_dump($query->errorInfo());
         return $query->execute();
+        // return false;
     }
 
     private function validateFirstName($fn){
