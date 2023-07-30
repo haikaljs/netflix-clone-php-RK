@@ -13,9 +13,23 @@ class Account{
         $this->con = $con;
     }
 
-    public function validateFirstName($fn){
+    public function register($fn, $ln, $un, $em, $em2, $pw, $pw2){
+        $this->validateFirstName($fn);
+        $this->validateLastName($ln);
+        // $this->validateUserName($un);
+        // $this->validateEmail($em);
+        // $this->validateFirstName($em2);
+    }
+
+    private function validateFirstName($fn){
         if(strlen($fn) < 2 || strlen($fn) > 25){
             array_push($this->errorArray, Constants::$firstNameCharacters);
+        }
+    }
+
+    private function validateLastName($ln){
+        if(strlen($ln) < 2 || strlen($ln) > 25){
+            array_push($this->errorArray, Constants::$lastNameCharacters);
         }
     }
 
