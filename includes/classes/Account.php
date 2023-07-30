@@ -24,13 +24,13 @@ class Account{
 
     private function validateFirstName($fn){
         if(strlen($fn) < 2 || strlen($fn) > 25){
-            array_push($this->errorArray, Constants::$firstNameCharacters);
+           return  array_push($this->errorArray, Constants::$firstNameCharacters);
         }
     }
 
     private function validateLastName($ln){
         if(strlen($ln) < 2 || strlen($ln) > 25){
-            array_push($this->errorArray, Constants::$lastNameCharacters);
+            return array_push($this->errorArray, Constants::$lastNameCharacters);
         }
     }
 
@@ -45,17 +45,17 @@ class Account{
         $query->execute();
 
         if($query->rowCount() != 0){
-            array_push($this->errorArray, Constants::$usernameTaken);
+            return array_push($this->errorArray, Constants::$usernameTaken);
         }
     }
 
     private function validateEmails($em, $em2){
         if($em != $em2){
-            array_push($this->errorArray, Constants::$emailsDontMatch);
+            return array_push($this->errorArray, Constants::$emailsDontMatch);
         }
 
         if(!filter_var($em, FILTER_VALIDATE_EMAIL)){
-            array_push($this->errorArray, Constants::$emailsInvalid);
+            return array_push($this->errorArray, Constants::$emailsInvalid);
         }
 
         $query = $this->con->prepare("SELECT * FROM users WHERE email=:em");
@@ -80,7 +80,7 @@ class Account{
 
     public function getError($error){
         if(in_array($error, $this->errorArray)){
-            return $error;
+            return "<span class='errorMessage'>$error</span>";
         }
     }
 
