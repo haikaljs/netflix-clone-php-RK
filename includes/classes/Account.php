@@ -26,6 +26,21 @@ class Account{
         return false;
     }
 
+    public function login($un, $pw){
+        $pw = hash("sha512", $pw);
+        $query = $this->con->prepare("SELECT * FROM users WHERE username username=:un AND password=:pw");
+        $query->bindValue(":un", $un);
+        $query->bindValue(":pw", $pw);
+        $query->execute();
+
+        if($query->rowCount == 1){
+            return true;
+        }
+
+        array_push($this->errorArray, Constants::$loginFailed);
+        return false;
+    }
+
     private function insertUserDetails($fn, $ln, $un, $em, $pw){
         $pw = hash("sha512", $pw);
         $query = $this->con->prepare("INSERT INTO users (firstName, lastName, username, email, password)
@@ -42,6 +57,8 @@ class Account{
         return $query->execute();
         // return false;
     }
+
+   
 
     private function validateFirstName($fn){
         if(strlen($fn) < 2 || strlen($fn) > 25){
