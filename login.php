@@ -15,6 +15,7 @@
        
         if($success){
             // Store session
+            $_SESSION["userLoggedIn"] = $username;
             header("Location: index.php");
         }
     }
@@ -47,7 +48,7 @@
                 <input type="submit" name="submitButton" value="SUBMIT">
             </form>
 
-            <a href="register.php" class="signInMessage">Need an account? Sign up here!</a>
+            <a href="register.php" class="signInMessage">Need an account? <span style="text-decoration: underline;">Sign up</span> here!</a>
         </div>
     </div>
 </body>

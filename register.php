@@ -19,6 +19,7 @@ require_once("./includes/classes/Account.php");
        
         if($success){
             // Store session
+            $_SESSION["userLoggedIn"] = $username;
             header("Location: index.php");
         }
 
@@ -86,7 +87,7 @@ require_once("./includes/classes/Account.php");
                 <input type="submit" name="submitButton" value="SUBMIT">
             </form>
 
-            <a href="login.php" class="signInMessage">Already have an account? Sign in here!</a>
+            <a href="login.php" class="signInMessage">Already have an account?  <span style="text-decoration: underline;">Sign in</span> here!</a>
         </div>
     </div>
     
